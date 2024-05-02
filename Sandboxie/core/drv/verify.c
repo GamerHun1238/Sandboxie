@@ -223,14 +223,6 @@ NTSTATUS KphVerifySignature(
     )
 {
     return STATUS_SUCCESS;
-
-CleanupExit:
-    if (keyHandle)
-        BCryptDestroyKey(keyHandle);
-    if (signAlgHandle)
-        BCryptCloseAlgorithmProvider(signAlgHandle, 0);
-
-    return status;
 }
 
 NTSTATUS KphVerifyFile(
